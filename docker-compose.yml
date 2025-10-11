@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    container_name: oauth-code-app
+    env_file:
+      - .env.local
+    environment:
+      FLASK_DEBUG: "1"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OAuth Error</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; }
+      .error { border: 1px solid #d33; padding: 1rem; background-color: #fdecea; }
+      a { display: inline-block; margin-top: 1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Authentication Error</h1>
+    <div class="error">
+      <p>{{ error }}</p>
+    </div>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </body>
+</html>
