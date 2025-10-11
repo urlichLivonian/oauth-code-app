@@ -123,26 +123,11 @@ Install [pipx](https://pipx.pypa.io/stable/installation/) if it is not already a
 
 The configured hooks apply formatting (`black`, `isort`), linting (`ruff`), static analysis (`mypy --strict`), and security checks (`bandit`). Running `pre-commit run --all-files` before pushing helps catch issues early. You can optionally install other tools (e.g., `pipx install black`) if you prefer running them manually outside of pre-commit.
 
-## IDE Guidance
-
-- **Visual Studio Code**
-  1. Install the official *Python* extension.
-  2. Open the repository folder.
-  3. Select the created virtual environment (`.venv`) as the Python interpreter.
-  4. Add the `.env.local` file path in `.vscode/settings.json` using `"python.envFile": "${workspaceFolder}/.env.local"` for automatic variable loading.
-
-- **JetBrains PyCharm**
-  1. Open the project directory.
-  2. Set the Python interpreter to the `.venv` folder or configure a Docker Compose interpreter that points to the `app` service.
-  3. Add an *Environment variables* entry for your `.env.local` file, or mark the file under *Run/Debug Configurations → EnvFile*.
-
-Both IDEs provide built-in HTTP logging consoles where you can observe the structured logs emitted by the Flask service.
-
 ## Observing IdP Interactions
 
 During the login flow the application logs entries similar to:
 
-```
+```log
 2024-05-01 12:00:00 - oauth_app.oidc - INFO - Sending request to IdP | method=POST url=https://idp.example.com/... headers={'Content-Type': 'application/x-www-form-urlencoded'} body={"grant_type": "authorization_code", ...}
 2024-05-01 12:00:00 - oauth_app.oidc - INFO - Received response from IdP | status=200 headers={...} payload={"access_token": "...", "refresh_token": "..."}
 ```
@@ -153,7 +138,7 @@ These logs provide full visibility into how the client and the IdP exchange info
 
 ## Project Structure
 
-```
+```text
 .
 ├── app
 │   ├── __init__.py
